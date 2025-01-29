@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import React, { useState } from 'react';
 
 import styles from './index.module.css';
 
@@ -31,26 +32,32 @@ function HomepageHeader() {
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
-  return  (
+  return (
     <Layout title="Deploy User Guide" description="Seamless crypto asset management">
-      <div style={{ display: 'flex', maxWidth: '1200px', margin: 'auto', padding: '20px' }}>
-        {/* Sidebar */}
-        <aside style={{ width: '250px', paddingRight: '20px', borderRight: '1px solid #ddd' }}>
-          <h3>Table of Contents</h3>
-          <ul style={{ listStyleType: 'none', padding: '0' }}>
-            <li><a href="#what-is-deploy">What is Deploy?</a></li>
-            <li><a href="#getting-started">Getting Started</a></li>
-            <li><a href="#wallet-setup">Wallet Setup</a></li>
-            <li><a href="#api-key-setup">API Key Setup</a></li>
-            <li><a href="#supported-networks">Supported Networks</a></li>
-            <li><a href="#choosing-a-strategy">Choosing a Strategy</a></li>
-            <li><a href="#risk-management">Risk Management</a></li>
-          </ul>
-        </aside>
+      <div className={clsx('container', 'margin-vert--lg')}>
+        <div className="row">
+          {/* Sidebar - will stack on mobile */}
+          <div className="col col--3">
+            <div className="sticky-sidebar">
+              <h3>Table of Contents</h3>
+              <nav className="table-of-contents">
+                <ul className="menu__list">
+                  <li className="menu__list-item"><a className="menu__link" href="#what-is-deploy">What is Deploy?</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#getting-started">Getting Started</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#wallet-setup">Wallet Setup</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#api-key-setup">API Key Setup</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#supported-networks">Supported Networks</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#choosing-a-strategy">Choosing a Strategy</a></li>
+                  <li className="menu__list-item"><a className="menu__link" href="#risk-management">Risk Management</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
 
         {/* Main Content */}
-        <main style={{ flex: 1, paddingLeft: '20px' }}>
-          <h1>Deploy User Guide</h1>
+        <main className="col col--9">
+            <article className="padding-left--md">
+              <h1>Deploy User Guide</h1>
           <p>Welcome to Deploy! This document serves as a comprehensive guide to help you navigate the platform, manage your funds, and make informed decisions.</p>
 
           <h2 id="what-is-deploy">What is Deploy?</h2>
@@ -100,7 +107,9 @@ export default function Home(): ReactNode {
             <li>Ensure only a portion of your portfolio is allocated to these strategies.</li>
             <li>Consult a financial advisor before making large investments.</li>
           </ul>
-        </main>
+          </article>
+          </main>
+        </div>
       </div>
     </Layout>
   );

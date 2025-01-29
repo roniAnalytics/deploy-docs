@@ -21,3 +21,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.sticky-sidebar {
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 996px) {
+  .sticky-sidebar {
+    position: static;
+    max-height: none;
+  }
+}
